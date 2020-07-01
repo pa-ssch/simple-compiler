@@ -61,11 +61,17 @@ namespace CalculatorCompiler.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die command:             assignStatement | printStatement
-        ///assignStatement:     identifier &apos;=&apos; expression
-        ///printStatement:      PRINT expression
-        ///expression:          atomicValue (&apos;+&apos; expression)*;
-        ///atomicValue:         identifier | intValue ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die command:              assignStatement | printStatement;
+        ///assignStatement:      identifier &apos;=&apos; expression;
+        ///printStatement:       PRINT sumExpression;
+        ///
+        ///sumExpression:        productExpression (&apos;+&apos; productExpression)*;
+        ///productExpression:    unaryExpression (&apos;*&apos; unaryExpression)*;
+        ///unaryExpression:      &apos;-&apos;? atomicExpression;
+        ///
+        ///atomicExpression:     identifier;
+        ///atomicExpression:     intValue;
+        ///atomicExpression:     &apos;(&apos; sumExpression &apos;)&apos;; ähnelt.
         /// </summary>
         internal static string Grammar {
             get {
