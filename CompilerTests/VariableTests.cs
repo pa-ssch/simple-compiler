@@ -1,3 +1,4 @@
+using CompilerExtensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CompilerTests

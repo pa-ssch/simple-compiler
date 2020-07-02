@@ -25,10 +25,7 @@ namespace Compiler
 
         public void Advance()
         {
-            while ((char)_streamReader.Peek() == ';' || Char.IsWhiteSpace((char)_streamReader.Peek()))
-                _streamReader.Read();
-
-            _nextToken = (char)_streamReader.Peek() switch
+            _nextToken = Peek() switch
             {
                 char c when c == '=' => GetToken(Token.EType.ASSIGN, c),
                 char c when Char.IsLetter(c) => GetIdentifierToken(),
@@ -53,15 +50,15 @@ namespace Compiler
         private Token GetIntegerToken()
         {
             StringBuilder intValue = new StringBuilder();
-            while (Char.IsNumber((char)_streamReader.Peek()))
-                intValue.Append((char)_streamReader.Read());
+            while (Char.IsNumber(Peek()))
+                intValue.Append(Read());
 
             return new Token(Token.EType.INTEGER, Int32.Parse($"{intValue}"));
         }
 
         private Token GetIdentifierToken()
         {
-            if((char)_streamReader.Peek() == 'P')
+            if(Peek() == 'P')
             {
                 foreach (var c in "PRINT")
                     Expect(c);
@@ -70,8 +67,8 @@ namespace Compiler
             }
 
             StringBuilder identifier = new StringBuilder();
-            while (Char.IsLetter((char)_streamReader.Peek()))
-                identifier.Append((char)_streamReader.Read());
+            while (Char.IsLetter(Peek()))
+                identifier.Append(Read());
 
             return new Token(Token.EType.IDENTIFIER, $"{identifier}");
         }
@@ -80,9 +77,26 @@ namespace Compiler
 
         private void Expect(char c)
         {
-            var nextChar = (char)_streamReader.Read();
+            var nextChar = Read();
             if (nextChar != c)
                 throw new UnexpectedCharacterException(nextChar, c);
+        }
+
+        private char Peek()
+        {
+            while (char.IsWhiteSpace((char)_streamReader.Peek()) || (char)_streamReader.Peek() == ';')
+                _streamReader.Read();
+
+            return (char)_streamReader.Peek();
+        }
+
+        private char Read()
+        {
+            while (char.IsWhiteSpace((char)_streamReader.Peek()) || (char)_streamReader.Peek() == ';')
+                _streamReader.Read();
+
+            return (char)_streamReader.Read();
+
         }
     }
 }

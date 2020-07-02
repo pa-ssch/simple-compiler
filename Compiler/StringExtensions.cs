@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Text;
 
-namespace CompilerTests
+namespace CompilerExtensions
 {
     public static class StringExtensions
     {

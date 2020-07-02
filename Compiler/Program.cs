@@ -1,6 +1,8 @@
-﻿using System;
+﻿using CompilerExtensions;
+using System;
 using System.Globalization;
 using System.IO;
+using System.Text;
 
 namespace Compiler
 {
@@ -16,16 +18,16 @@ namespace Compiler
 
             do
             {
-                using var stream = new MemoryStream();
-                var writer = new StreamWriter(stream);
+                // Read Input
+                var input = new StringBuilder();
+                for (string nextCommand; (nextCommand = Console.ReadLine()) != "BUILD";)
+                    input.Append($"{nextCommand};");
 
-                for (string nextLine; (nextLine = Console.ReadLine()) != "BUILD";)
-                    writer.Write($"{nextLine.Replace(" ", "")};");
-
-                writer.Flush();
-                stream.Position = 0;
+                // Compile
                 var compiler = new CompilerEnvironment();
-                compiler.Compile(stream);
+                compiler.Compile($"{input}".ToStream());
+
+                // Write Output
                 Console.WriteLine(compiler.Output.Replace(";", "\r\n"));
 
                 Console.WriteLine("Insert and compile other commands? (y/n)");
