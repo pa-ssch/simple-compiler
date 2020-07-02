@@ -30,7 +30,9 @@ namespace Compiler
                 // Write Output
                 Console.WriteLine(compiler.Output.Replace(";", "\r\n"));
 
+                // Restart?
                 Console.WriteLine("Insert and compile other commands? (y/n)");
+
             } while (Console.ReadLine().StartsWith("y", true, CultureInfo.InvariantCulture));
 
         }

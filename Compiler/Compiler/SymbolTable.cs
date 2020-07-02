@@ -7,6 +7,11 @@ namespace Compiler
     {
         private readonly Dictionary<string, Symbol> _symbols = new Dictionary<string, Symbol>();
 
+        /// <summary>
+        /// Returns a Symbol
+        /// </summary>
+        /// <param name="identifier">Identifier of the serarched Symbol</param>
+        /// <exception cref="MissingSymbolException">Thrown when the searched Symbol is not declared</exception>
         public Symbol Get(string identifier)
         {
             if (!_symbols.ContainsKey(identifier))
@@ -15,6 +20,11 @@ namespace Compiler
             return _symbols[identifier];
         }
 
+        /// <summary>
+        /// Creates a new or overwrites an existing Symbol
+        /// </summary>
+        /// <param name="identifier">Name of the Symbol</param>
+        /// <returns>The created or changed Symbol</returns>
         public Symbol Create(string identifier)
         {
             _symbols[identifier] = new Symbol(identifier);
