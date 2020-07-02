@@ -9,7 +9,7 @@ namespace CompilerTests
         public void TestSum()
         {
             // Plan
-            var input = "PRINT5+5;PRINT 10 + 11  ".ToStream();
+            using var input = "PRINT5+5;PRINT 10 + 11  ".ToStream();
             var output = "10;21;";
 
             // Do

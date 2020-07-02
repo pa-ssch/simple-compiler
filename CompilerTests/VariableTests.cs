@@ -9,7 +9,7 @@ namespace CompilerTests
         public void TestAssign()
         {
             // Plan
-            var input = "x = 9*9;PRINT x;x = 8;y = 2;z = x*y;PRINT x; PRINT z; PRINT y; PRINT x+y+z".ToStream();
+            using var input = "x = 9*9;PRINT x;x = 8;y = 2;z = x*y;PRINT x; PRINT z; PRINT y; PRINT x+y+z".ToStream();
             var output = "81;8;16;2;26;";
 
             // Do
