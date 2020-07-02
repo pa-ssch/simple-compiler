@@ -9,10 +9,12 @@ namespace Compiler
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Type 'BUILD' to compile");
-            Console.WriteLine("------------------------------------------------");
+            Console.WriteLine(Properties.Resources.Caption);
+            Console.WriteLine(Properties.Resources.Seperator);
             Console.WriteLine(Properties.Resources.Grammar);
-            Console.WriteLine("------------------------------------------------");
+            Console.WriteLine(Properties.Resources.Seperator);
+            Console.WriteLine("Type 'BUILD' to compile");
+            Console.WriteLine(Properties.Resources.Seperator);
 
             do
             {

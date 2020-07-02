@@ -12,7 +12,7 @@ productExpression:    unaryExpression ('*' unaryExpression)*;
 unaryExpression:      '-'? atomicExpression;
 
 atomicExpression:     identifier;
-atomicExpression:     intValue;
+atomicExpression:     naturalNumber;
 atomicExpression:     '(' sumExpression ')';
 
 ([C resx file](CalculatorCompiler/Properties/Resources.resx))

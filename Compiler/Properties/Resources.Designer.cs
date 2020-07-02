@@ -61,6 +61,21 @@ namespace Compiler.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die       _                 _                                  _ _           
+        ///     (_)               | |                                (_) |          
+        ///  ___ _ _ __ ___  _ __ | | ___    ___ ___  _ __ ___  _ __  _| | ___ _ __ 
+        /// / __| | &apos;_ ` _ \| &apos;_ \| |/ _ \  / __/ _ \| &apos;_ ` _ \| &apos;_ \| | |/ _ \ &apos;__|
+        /// \__ \ | | | | | | |_) | |  __/ | (_| (_) | | | | | | |_) | | |  __/ |   
+        /// |___/_|_| |_| |_| .__/|_|\___|  \___\___/|_| |_| |_| .__/|_|_|\___|_|   
+        ///                 | |                                | |        [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string Caption {
+            get {
+                return ResourceManager.GetString("Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die command:              (assignStatement | printStatement) &apos;;&apos;;
         ///assignStatement:      identifier &apos;=&apos; sumExpression;
         ///printStatement:       PRINT sumExpression;
@@ -70,12 +85,21 @@ namespace Compiler.Properties {
         ///unaryExpression:      &apos;-&apos;? atomicExpression;
         ///
         ///atomicExpression:     identifier;
-        ///atomicExpression:     intValue;
+        ///atomicExpression:     naturalNumber;
         ///atomicExpression:     &apos;(&apos; sumExpression &apos;)&apos;; ähnelt.
         /// </summary>
         internal static string Grammar {
             get {
                 return ResourceManager.GetString("Grammar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ------------------------------------------------------------------------- ähnelt.
+        /// </summary>
+        internal static string Seperator {
+            get {
+                return ResourceManager.GetString("Seperator", resourceCulture);
             }
         }
     }
