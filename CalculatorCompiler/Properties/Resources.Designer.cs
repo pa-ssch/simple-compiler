@@ -62,7 +62,7 @@ namespace CalculatorCompiler.Properties {
         
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die command:              assignStatement | printStatement;
-        ///assignStatement:      identifier &apos;=&apos; expression;
+        ///assignStatement:      identifier &apos;=&apos; sumExpression;
         ///printStatement:       PRINT sumExpression;
         ///
         ///sumExpression:        productExpression (&apos;+&apos; productExpression)*;

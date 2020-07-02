@@ -119,7 +119,7 @@
   </resheader>
   <data name="Grammar" xml:space="preserve">
     <value>command:              assignStatement | printStatement;
-assignStatement:      identifier '=' expression;
+assignStatement:      identifier '=' sumExpression;
 printStatement:       PRINT sumExpression;
 
 sumExpression:        productExpression ('+' productExpression)*;

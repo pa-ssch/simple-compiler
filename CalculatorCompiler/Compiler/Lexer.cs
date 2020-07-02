@@ -25,31 +25,29 @@ namespace CalculatorCompiler.Compiler
 
         public void Advance()
         {
-            if ((char)_streamReader.Peek() == ';')
+            while ((char)_streamReader.Peek() == ';' || Char.IsWhiteSpace((char)_streamReader.Peek()))
                 _streamReader.Read();
 
             _nextToken = (char)_streamReader.Peek() switch
             {
-                '=' => GetAssignToken(),
+                char c when c == '=' => GetToken(Token.EType.ASSIGN, c),
                 char c when Char.IsLetter(c) => GetIdentifierToken(),
                 char c when Char.IsNumber(c) => GetIntegerToken(),
-                '+' => GetPlusToken(),
-                _ => GetEofToken(),
+                char c when c == '+' => GetToken(Token.EType.PLUS, c),
+                char c when c == '-' => GetToken(Token.EType.UNARYMINUS, c),
+                char c when c == '(' => GetToken(Token.EType.LPAREN, c),
+                char c when c == ')' => GetToken(Token.EType.RPAREN, c),
+                char c when c == '*' => GetToken(Token.EType.MUL, c),
+                _ => GetToken(Token.EType.EOF)
             };
         }
 
-        private Token GetEofToken() => new Token(Token.EType.EOF);
-
-        private Token GetPlusToken()
+        private Token GetToken(Token.EType tokenType, char? expectedChar = null)
         {
-            Expect('+');
-            return new Token(Token.EType.PLUS);
-        }
+            if (expectedChar.HasValue)
+                Expect(expectedChar.Value);
 
-        private Token GetAssignToken()
-        {
-            Expect('=');
-            return new Token(Token.EType.ASSIGN);
+            return new Token(tokenType);
         }
 
         private Token GetIntegerToken()
@@ -60,7 +58,6 @@ namespace CalculatorCompiler.Compiler
 
             return new Token(Token.EType.INTEGER, Int32.Parse($"{intValue}"));
         }
-
 
         private Token GetIdentifierToken()
         {

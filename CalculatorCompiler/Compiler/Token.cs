@@ -9,7 +9,11 @@
             INTEGER,
             PLUS,
             EOF,
-            ASSIGN
+            ASSIGN,
+            UNARYMINUS,
+            LPAREN,
+            RPAREN,
+            MUL
         }
 
         public EType Type;

@@ -26,7 +26,7 @@ namespace CalculatorCompiler.Compiler
                 ReadAssignStatement();
             else if (_lexer.LookAheadToken().Type == Token.EType.PRINT)
                 GetPrintStatement();
-            else if (_lexer.LookAheadToken().Type != Token.EType.EOF)
+            else
                 throw new UnexpectedTokenException($"{Token.EType.IDENTIFIER}, {Token.EType.PRINT} or {Token.EType.EOF}", $"{_lexer.LookAheadToken().Type}");
         }
 
