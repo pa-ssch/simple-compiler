@@ -27,7 +27,7 @@ namespace CalculatorCompiler.Compiler
             else if (_lexer.LookAheadToken().Type == Token.EType.PRINT)
                 GetPrintStatement();
             else
-                throw new UnexpectedTokenException($"{Token.EType.IDENTIFIER}, {Token.EType.PRINT} or {Token.EType.EOF}", $"{_lexer.LookAheadToken().Type}");
+                throw new UnexpectedTokenException($"{_lexer.LookAheadToken().Type}", $"{Token.EType.IDENTIFIER}, {Token.EType.PRINT} or {Token.EType.EOF}");
         }
 
         private void GetAssignStatement()
@@ -106,7 +106,7 @@ namespace CalculatorCompiler.Compiler
             }
             else
             {
-                throw new UnexpectedTokenException($"{Token.EType.INTEGER} or {Token.EType.IDENTIFIER}", $"{token.Type}");
+                throw new UnexpectedTokenException($"{token.Type}", $"{Token.EType.LPAREN}, {Token.EType.INTEGER} or {Token.EType.IDENTIFIER}");
             }
         }
     }
