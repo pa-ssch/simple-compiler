@@ -19,7 +19,7 @@ namespace Compiler
                 // Read Input
                 var input = new StringBuilder();
                 for (string nextCommand; (nextCommand = Console.ReadLine()) != "BUILD";)
-                    input.Append($"{nextCommand};");
+                    input.Append(nextCommand);
 
                 // Compile
                 var compiler = new CompilerEnvironment();
