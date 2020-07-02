@@ -28,6 +28,8 @@ namespace Compiler
                 GetPrintStatement();
             else
                 throw new UnexpectedTokenException($"{_lexer.LookAheadToken().Type}", $"{Token.EType.IDENTIFIER}, {Token.EType.PRINT} or {Token.EType.EOF}");
+
+            _lexer.Expect(Token.EType.SEMICOL);
         }
 
         private void GetAssignStatement()

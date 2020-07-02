@@ -1,7 +1,6 @@
 ﻿using CompilerExtensions;
 using System;
 using System.Globalization;
-using System.IO;
 using System.Text;
 
 namespace Compiler
@@ -11,7 +10,6 @@ namespace Compiler
         static void Main(string[] args)
         {
             Console.WriteLine("Type 'BUILD' to compile");
-            Console.WriteLine("One command per Line");
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine(Properties.Resources.Grammar);
             Console.WriteLine("------------------------------------------------");

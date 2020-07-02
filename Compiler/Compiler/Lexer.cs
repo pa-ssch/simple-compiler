@@ -43,6 +43,7 @@ namespace Compiler
                 char c when c == '(' => GetToken(Token.EType.LPAREN, c),
                 char c when c == ')' => GetToken(Token.EType.RPAREN, c),
                 char c when c == '*' => GetToken(Token.EType.MUL, c),
+                char c when c == ';' => GetToken(Token.EType.SEMICOL, c),
                 _ => GetToken(Token.EType.EOF)
             };
         }
@@ -101,7 +102,7 @@ namespace Compiler
         /// <returns>The next 'not-whitespace' Character</returns>
         private char Peek()
         {
-            while (char.IsWhiteSpace((char)_streamReader.Peek()) || (char)_streamReader.Peek() == ';')
+            while (char.IsWhiteSpace((char)_streamReader.Peek()))
                 _streamReader.Read();
 
             return (char)_streamReader.Peek();
@@ -113,7 +114,7 @@ namespace Compiler
         /// <returns>The next 'not-whitespace' Character</returns>
         private char Read()
         {
-            while (char.IsWhiteSpace((char)_streamReader.Peek()) || (char)_streamReader.Peek() == ';')
+            while (char.IsWhiteSpace((char)_streamReader.Peek()))
                 _streamReader.Read();
 
             return (char)_streamReader.Read();

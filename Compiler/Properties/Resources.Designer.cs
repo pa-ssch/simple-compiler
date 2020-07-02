@@ -61,7 +61,7 @@ namespace Compiler.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die command:              assignStatement | printStatement;
+        ///   Sucht eine lokalisierte Zeichenfolge, die command:              (assignStatement | printStatement) &apos;;&apos;;
         ///assignStatement:      identifier &apos;=&apos; sumExpression;
         ///printStatement:       PRINT sumExpression;
         ///

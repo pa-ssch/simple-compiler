@@ -3,7 +3,7 @@ This is a simple compiler for a selection of mathematical expressions. The purpo
 
 
 ### Presently the expressions of the following grammar are supported
-command:              assignStatement | printStatement;
+command:              (assignStatement | printStatement) ';'
 assignStatement:      identifier '=' expression;
 printStatement:       PRINT sumExpression;
 

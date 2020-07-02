@@ -13,7 +13,8 @@
             UNARYMINUS,
             LPAREN,
             RPAREN,
-            MUL
+            MUL,
+            SEMICOL
         }
 
         public EType Type;
