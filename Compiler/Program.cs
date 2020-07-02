@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.IO;
 
-namespace CalculatorCompiler
+namespace Compiler
 {
     class Program
     {
@@ -24,7 +24,9 @@ namespace CalculatorCompiler
 
                 writer.Flush();
                 stream.Position = 0;
-                new Compiler.CompilerEnvironment().Compile(stream);
+                var compiler = new CompilerEnvironment();
+                compiler.Compile(stream);
+                Console.WriteLine(compiler.Output.Replace(";", "\r\n"));
 
                 Console.WriteLine("Insert and compile other commands? (y/n)");
             } while (Console.ReadLine().StartsWith("y", true, CultureInfo.InvariantCulture));

@@ -1,4 +1,4 @@
-﻿namespace CalculatorCompiler.Compiler
+﻿namespace Compiler
 {
     class Token
     {

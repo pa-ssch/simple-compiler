@@ -1,4 +1,4 @@
-﻿namespace CalculatorCompiler.Compiler.Instructions
+﻿namespace Compiler.Instructions
 {
     class PushNumberInstruction : IInstruction
     {

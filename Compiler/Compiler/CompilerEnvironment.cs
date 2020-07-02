@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using CalculatorCompiler.Compiler.Instructions;
+using Compiler.Instructions;
 
-namespace CalculatorCompiler.Compiler
+namespace Compiler
 {
     public class CompilerEnvironment
     {
@@ -16,8 +16,10 @@ namespace CalculatorCompiler.Compiler
 
             var exEnv = new ExecutionEnvironment(_instructionStack);
             exEnv.Execute();
-            System.Console.WriteLine(exEnv.Output);
+            Output = exEnv.Output;
         }
+
+        public string Output { get; private set; }
 
         public void AddInstruction(IInstruction instruction) => _instructionStack.Add(instruction);
     }

@@ -1,4 +1,4 @@
-﻿namespace CalculatorCompiler.Compiler.Exceptions
+﻿namespace Compiler.Exceptions
 {
     public class UnexpectedCharacterException : System.Exception
     {

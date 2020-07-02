@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using System;
 using System.Text;
-using CalculatorCompiler.Compiler.Exceptions;
+using Compiler.Exceptions;
 
-namespace CalculatorCompiler.Compiler
+namespace Compiler
 {
     internal class Lexer
     {

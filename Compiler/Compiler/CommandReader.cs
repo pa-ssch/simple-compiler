@@ -1,7 +1,7 @@
-﻿using CalculatorCompiler.Compiler.Exceptions;
-using CalculatorCompiler.Compiler.Instructions;
+﻿using Compiler.Exceptions;
+using Compiler.Instructions;
 
-namespace CalculatorCompiler.Compiler
+namespace Compiler
 {
     internal class CommandReader
     {

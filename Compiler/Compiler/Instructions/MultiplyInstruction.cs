@@ -1,12 +1,12 @@
-﻿namespace CalculatorCompiler.Compiler.Instructions
+﻿namespace Compiler.Instructions
 {
-    class AddInstruction : IInstruction
+    class MultiplyInstruction : IInstruction
     {
         public void Execute(ExecutionEnvironment env)
         {
             var lSum = env.PopNumber();
             var rSum = env.PopNumber();
-            env.PushNumber(lSum + rSum);
+            env.PushNumber(lSum * rSum);
         }
     }
 }

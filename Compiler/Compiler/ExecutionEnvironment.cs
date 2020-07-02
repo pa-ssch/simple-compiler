@@ -1,7 +1,7 @@
-﻿using CalculatorCompiler.Compiler.Instructions;
+﻿using Compiler.Instructions;
 using System.Collections.Generic;
 
-namespace CalculatorCompiler.Compiler
+namespace Compiler
 {
     public class ExecutionEnvironment
     {

@@ -1,7 +1,7 @@
-﻿using CalculatorCompiler.Compiler.Exceptions;
+﻿using Compiler.Exceptions;
 using System.Collections.Generic;
 
-namespace CalculatorCompiler.Compiler
+namespace Compiler
 {
     public class SymbolTable
     {
