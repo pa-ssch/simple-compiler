@@ -16,7 +16,6 @@ namespace CalculatorCompiler
 
             do
             {
-
                 using var stream = new MemoryStream();
                 var writer = new StreamWriter(stream);
 
@@ -27,6 +26,7 @@ namespace CalculatorCompiler
                 stream.Position = 0;
                 new Compiler.CompilerEnvironment().Compile(stream);
 
+                Console.WriteLine("Insert and compile other commands? (y/n)");
             } while (Console.ReadLine().StartsWith("y", true, CultureInfo.InvariantCulture));
 
         }
