@@ -8,9 +8,6 @@
             _number = number;
         }
 
-        public void Execute(ExecutionEnvironment env)
-        {
-            env.PushNumber(_number);
-        }
+        public void Execute(ExecutionEnvironment env) => env.PushNumber(_number);
     }
 }

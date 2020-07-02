@@ -2,9 +2,6 @@
 {
     public class PrintInstruction : IInstruction
     {
-        public void Execute(ExecutionEnvironment env)
-        {
-            env.WriteOutput($"{env.PopNumber()} \r\n");
-        }
+        public void Execute(ExecutionEnvironment env) => env.WriteOutput($"{env.PopNumber()} \r\n");
     }
 }
