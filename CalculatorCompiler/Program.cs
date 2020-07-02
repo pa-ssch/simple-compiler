@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 
 namespace CalculatorCompiler
@@ -13,15 +14,21 @@ namespace CalculatorCompiler
             Console.WriteLine(Properties.Resources.Grammar);
             Console.WriteLine("------------------------------------------------");
 
-            var stream = new MemoryStream();
-            var writer = new StreamWriter(stream);
+            do
+            {
 
-            for (string nextLine;(nextLine = Console.ReadLine()) != "BUILD";)
-                writer.Write($"{nextLine.Replace(" ", "")};");
+                using var stream = new MemoryStream();
+                var writer = new StreamWriter(stream);
 
-            writer.Flush();
-            stream.Position = 0;
-            new Compiler.CompilerEnvironment().Compile(stream);
+                for (string nextLine; (nextLine = Console.ReadLine()) != "BUILD";)
+                    writer.Write($"{nextLine.Replace(" ", "")};");
+
+                writer.Flush();
+                stream.Position = 0;
+                new Compiler.CompilerEnvironment().Compile(stream);
+
+            } while (Console.ReadLine().StartsWith("y", true, CultureInfo.InvariantCulture));
+
         }
     }
 }
