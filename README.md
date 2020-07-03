@@ -15,4 +15,4 @@ atomicExpression:     identifier;
 atomicExpression:     naturalNumber;
 atomicExpression:     '(' sumExpression ')';
 
-([C resx file](CalculatorCompiler/Properties/Resources.resx))
+([C resx file](Compiler/Properties/Resources.resx))
