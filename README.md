@@ -16,3 +16,6 @@ atomicExpression:     naturalNumber;
 atomicExpression:     '(' sumExpression ')';
 
 ([C resx file](Compiler/Properties/Resources.resx))
+
+### Example
+![Screenshot not available](simple-compiler-screenshot-7.png)
