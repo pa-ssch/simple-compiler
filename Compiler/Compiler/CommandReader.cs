@@ -1,4 +1,5 @@
-﻿using Compiler.Exceptions;
+﻿using Compiler.Compiler;
+using Compiler.Exceptions;
 using Compiler.Instructions;
 
 namespace Compiler
@@ -63,15 +64,48 @@ namespace Compiler
 
         private void GetProductExpression()
         {
-            GetUnaryExpression();
+            GetTernaryExpression();
 
             while (_lexer.LookAheadToken().Type == Token.EType.MUL)
             {
                 _lexer.Expect(Token.EType.MUL);
-                GetUnaryExpression();
+                GetTernaryExpression();
                 _compilerEnvironment.AddInstruction(new MultiplyInstruction());
             }
         }
+
+        private void GetTernaryExpression()
+        {
+            GetUnaryExpression();
+
+            if(_lexer.LookAheadToken().Type == Token.EType.QUESTIONMARK)
+            {
+                var trueBlock = new InstructionBlock();
+                var falseBlock = new InstructionBlock();
+                var exitBlock = new InstructionBlock();
+                var exitJump = new JumpInstruction(exitBlock);
+
+                var conditionalJump = new ConditionalJumpInstruction(trueBlock, falseBlock);
+                _compilerEnvironment.AddInstruction(conditionalJump);
+                
+                _lexer.Expect(Token.EType.QUESTIONMARK);
+
+                _compilerEnvironment.SetCurrentBlock(trueBlock);
+                GetUnaryExpression();
+                _compilerEnvironment.AddInstruction(exitJump);
+
+
+                _lexer.Expect(Token.EType.COLON);
+
+                _compilerEnvironment.SetCurrentBlock(falseBlock);
+                GetUnaryExpression();
+                _compilerEnvironment.AddInstruction(exitJump);
+
+
+                _compilerEnvironment.SetCurrentBlock(exitBlock);
+            }
+        }
+
 
         private void GetUnaryExpression()
         {

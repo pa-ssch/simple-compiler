@@ -14,7 +14,9 @@
             LPAREN,
             RPAREN,
             MUL,
-            SEMICOL
+            SEMICOL,
+            COLON,
+            QUESTIONMARK
         }
 
         public EType Type;

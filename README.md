@@ -7,9 +7,10 @@ command:              (assignStatement | printStatement) ';'
 assignStatement:      identifier '=' expression;
 printStatement:       PRINT sumExpression;
 
-sumExpression:        productExpression ('+' productExpression)*;
-productExpression:    unaryExpression ('*' unaryExpression)*;
-unaryExpression:      '-'? atomicExpression;
+sumExpression:        productExpression ('+' productExpression)*
+productExpression:    ternaryExpression ('*' ternaryExpression)*
+ternaryExpression:    unaryExpression ('?' unaryExpression ':' unaryExpression)?
+unaryExpression:      '-'? atomicExpression
 
 atomicExpression:     identifier;
 atomicExpression:     naturalNumber;

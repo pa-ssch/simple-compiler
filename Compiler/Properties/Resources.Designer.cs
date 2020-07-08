@@ -76,17 +76,18 @@ namespace Compiler.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die command:              (assignStatement | printStatement) &apos;;&apos;;
-        ///assignStatement:      identifier &apos;=&apos; sumExpression;
-        ///printStatement:       PRINT sumExpression;
+        ///   Sucht eine lokalisierte Zeichenfolge, die command:              (assignStatement | printStatement) &apos;;&apos;
+        ///assignStatement:      identifier &apos;=&apos; sumExpression
+        ///printStatement:       PRINT sumExpression
         ///
-        ///sumExpression:        productExpression (&apos;+&apos; productExpression)*;
-        ///productExpression:    unaryExpression (&apos;*&apos; unaryExpression)*;
-        ///unaryExpression:      &apos;-&apos;? atomicExpression;
+        ///sumExpression:        productExpression (&apos;+&apos; productExpression)*
+        ///productExpression:    ternaryExpression (&apos;*&apos; ternaryExpression)*
+        ///ternaryExpression:    unaryExpression (&apos;?&apos; unaryExpression &apos;:&apos; unaryExpression)?
+        ///unaryExpression:      &apos;-&apos;? atomicExpression
         ///
-        ///atomicExpression:     identifier;
-        ///atomicExpression:     naturalNumber;
-        ///atomicExpression:     &apos;(&apos; sumExpression &apos;)&apos;; ähnelt.
+        ///atomicExpression:     identifier
+        ///atomicExpression:     naturalNumber
+        ///atomicExpression:     [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string Grammar {
             get {

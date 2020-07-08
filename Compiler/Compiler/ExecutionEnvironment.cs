@@ -1,25 +1,31 @@
-﻿using Compiler.Instructions;
+﻿using Compiler.Compiler;
+using Compiler.Instructions;
 using System.Collections.Generic;
 
 namespace Compiler
 {
     public class ExecutionEnvironment
     {
-        private readonly List<IInstruction> _instructions;
+        private List<IInstruction>.Enumerator _instructionEnumerator;
         private readonly Stack<int> _numberStack;
 
-        public ExecutionEnvironment(List<IInstruction> instructionStack)
+
+        public ExecutionEnvironment(List<IInstruction>.Enumerator instructionEnumerator)
         {
             Symbols = new SymbolTable();
-            _instructions = instructionStack;
+            _instructionEnumerator = instructionEnumerator;
             _numberStack = new Stack<int>();
         }
 
         public int PopNumber() => _numberStack.Pop();
 
-        public void Execute() => _instructions.ForEach(i => i.Execute(this));
+        public void Execute()
+        {
+            while (_instructionEnumerator.MoveNext())
+                _instructionEnumerator.Current.Execute(this);
+        }
 
-        public void AddInstruction(IInstruction instruction) => _instructions.Add(instruction);
+        public void SetEnumerator(List<IInstruction>.Enumerator instructionEnumerator) => _instructionEnumerator = instructionEnumerator;
 
         public void PushNumber(int integerValue) => _numberStack.Push(integerValue);
 

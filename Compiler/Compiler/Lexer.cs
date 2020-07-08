@@ -44,6 +44,8 @@ namespace Compiler
                 char c when c == ')' => GetToken(Token.EType.RPAREN, c),
                 char c when c == '*' => GetToken(Token.EType.MUL, c),
                 char c when c == ';' => GetToken(Token.EType.SEMICOL, c),
+                char c when c == ':' => GetToken(Token.EType.COLON, c),
+                char c when c == '?' => GetToken(Token.EType.QUESTIONMARK, c),
                 _ => GetToken(Token.EType.EOF)
             };
         }
