@@ -3,6 +3,7 @@ This is a simple compiler for a selection of mathematical expressions. The purpo
 
 
 ### Presently the expressions of the following grammar are supported
+```
 command:              (assignStatement | printStatement) ';'
 assignStatement:      identifier '=' expression;
 printStatement:       PRINT sumExpression;
@@ -15,6 +16,7 @@ unaryExpression:      '-'? atomicExpression
 atomicExpression:     identifier;
 atomicExpression:     naturalNumber;
 atomicExpression:     '(' sumExpression ')';
+```
 
 ([C resx file](Compiler/Properties/Resources.resx))
 
